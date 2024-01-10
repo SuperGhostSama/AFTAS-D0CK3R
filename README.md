@@ -43,5 +43,6 @@ To use Docker for your AFTAS project, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/your-username/AFTAS-project.git`
 2. Navigate to the project directory: `cd AFTAS-project`
-3. Build and run the Docker container:
-`docker-compose up`
+3. Build and run the Docker container: `docker-compose up`
+4. Access your application at [http://localhost:your-port](http://localhost:your-port)
+
