@@ -16,6 +16,7 @@ import java.util.Date;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Table(name = "ranking")
 public class Ranking {
 
 

@@ -4,21 +4,31 @@ services:
   mysql:
     image: mysql:8
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: root
+      MYSQL_DATABASE: aftas
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+
     ports:
       - "3306:3306"
 
   backend:
-    image: aftas-backend
+    build: 
+      context: ./aftas-backend
+      dockerfile: Dockerfile
+   
     ports:
-      - "8080:8080"
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/aftas
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       - mysql
 
   frontend:
-    image: aftas-frontend
+    build: 
+      context: ./aftas-frontend
+      dockerfile: Dockerfile
     ports:
-      - "4200:4200"
-    depends_on:
-      - backend
+      - "4200:80"
+    
